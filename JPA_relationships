@@ -1,0 +1,21 @@
+Notes for JPA Relationships
+
+
+
+
+@JoinColumn
+
+Indicates the the table having foreign key column
+Indicates the entity which OWNS the relationship, table with foreign key is OWNER ALWAYS
+here we can get or set child entity from/into parent entity 
+in name attribute we pass the name of column which is foreign key ex @JoinColumn(name = "department_id")
+
+
+mappedBy
+
+this property is to be added in the table which doesnot contain foreign key.
+this property should be added to make the relationship bidirectional.
+so we can get or save parent table entity from/into the child entity.
+in mapped by attribute we pass the variable name used in parent entity class for the child entity class, this variable name is camelCase as in java ex @oneToMany( mappedBy = "desk")
+
+
