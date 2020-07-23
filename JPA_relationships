@@ -19,3 +19,20 @@ so we can get or save parent table entity from/into the child entity.
 in mapped by attribute we pass the variable name used in parent entity class for the child entity class, this variable name is camelCase as in java ex @oneToMany( mappedBy = "desk")
 
 
+For Many to many relationship
+
+@ManyToMany(cascade = CascadeType.PERSIST)
+@JoinTable(name = "employee_project", joinColumns = @JoinColumn(name = "id_employee"), inverseJoinColumns = @JoinColumn(name = "id_project"))
+@joinTable annotation is used to create a new join table to create many to many relationship between 2 entities.
+"name" attribute is used to specify the table name
+"joinColumns" attribute is used to specify the name of column of the table who should own this relationship.
+"inverseJoinColumns" attribute is used to specify the name of column of the table who should NOT own this relationship.
+
+
+@ManyToMany(mappedBy = "projects", cascade = CascadeType.PERSIST)
+mappedBy attribute is used to specify the variable name used in owner entity class.
+it signifies that the owner is other entity but you can access that class as well from this entity from hibernate perspective.
+
+
+
+
