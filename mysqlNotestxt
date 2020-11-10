@@ -1,0 +1,199 @@
+
+
+
+
+
+types of joins.  ---> Inner, left , right, cross, self
+types of foreign key mappings.  (one to one, one to many, mant to one)
+how to find 2nd highest salary employee
+what is indexing of tables
+what is innodb
+what is sequence in postgre
+procedures vs functions in mysql, are they in postgre sql?
+what is DML, DDl, etc
+
+drop table  ----> delete the table along with its definition and relationships.
+delete table ---> we can delete all rows or selected rows by using where clause.  
+                 Logs are generated for each deleted row.
+				 triggers get triggered for each row
+				 less efficient than truncate
+				 after deleting all the autoincrement values remain same.
+				 
+truncate table    --->  all rows are deleted from the table 
+                        the auto increment value is reset
+						its faster
+						logs are not created for every record.
+
+
+
+
+////////Left Join
+
+SELECT 
+    o.orderNumber, 
+    customerNumber, 
+    productCode
+FROM
+    orders o
+LEFT JOIN orderDetails 
+    USING (orderNumber)
+	
+In above query orders is left table and orderDetails is right table.
+All records from the left table will be present and
+few records from the right table will be present which are satisfying the condition in ON clause.
+/////////////////////////////////
+
+SELECT 
+    select_list
+FROM
+    t1
+LEFT JOIN t2 ON 
+    join_condition;
+	
+
+When you use the LEFT JOIN clause, the concepts of the left table and the right table are introduced.
+
+In the above syntax, t1 is the left table and t2 is the right table.
+
+The LEFT JOIN clause selects data starting from the left table (t1). It matches each row from the left table (t1) with every row from the right table(t2) based on the join_condition.
+
+If the rows from both tables cause the join condition evaluates to TRUE, the LEFT JOIN combine columns of rows from both tables to a new row and includes this new row in the result rows.
+
+In case the row from the left table (t1) does not match with any row from the right table(t2), the LEFT JOIN still combines columns of rows from both tables into a new row and include the new row in the result rows. However, it uses NULL for all the columns of the row from the right table.
+
+In other words, LEFT JOIN returns all rows from the left table regardless of whether a row from the left table has a matching row from the right table or not. If there is no match, the columns of the row from the right table will contain NULL.
+	
+////////////////////////////////////////
+
+
+Condition in WHERE clause vs. ON clause FOR LEFT JOINS
+
+
+SELECT 
+    o.orderNumber, 
+    customerNumber, 
+    productCode
+FROM
+    orders o
+LEFT JOIN orderDetails 
+    USING (orderNumber)
+WHERE
+    orderNumber = 10123;
+
+//////////VS\\\\\\\\\\\\\\\\\
+
+
+SELECT 
+    o.orderNumber, 
+    customerNumber, 
+    productCode
+FROM
+    orders o
+LEFT JOIN orderDetails d 
+    ON o.orderNumber = d.orderNumber AND 
+       o.orderNumber = 10123;
+	   
+Both the above queries will have different results for left, but same results for inner join
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+RIGHT JOIN
+
+SELECT 
+    select_last
+FROM t1
+RIGHT JOIN t2 ON 
+    join_condition;
+	
+	
+t1 is the left table and t2 is the right table
+The RIGHT JOIN returns all rows from the right table regardless of having matching rows from the left table or not.
+
+
+IN SHORT 
+If Left Join is used, then all rows from left table will be present
+If right Join is used, then all rows from right table will be present
+There is difference in result, if condition is put in where clause rather than in ON clause for left and right joins, whereas there is no difference in result if condition is put in where clause or ON clause of inner join.  
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+CROSS JOIN
+
+Suppose you join two tables using the CROSS JOIN clause. The result set will include all rows from both tables, where each row is the combination of the row in the first table with the row in the second table. In general, if each table has n and m rows respectively, the result set will have nxm rows.
+
+
+SELF JOIN
+
+Join a table with itself using different aliases, we can use leftnjoin or inner join mostly.
+
+
+GROUP BY
+Is used to group multiple rows into a single row based on value of certain volumn.
+It is generally used along woth aggregate functions such as SUM, MAX, MIN,AVG and COUNT
+
+IT COMES AFTER SELECT , WHERE CLAUSE.
+IT COMES BEFORE HAVING,ORDER BY, LIMIT
+
+
+HAVING
+HAVING is used after GRoup by to apply filter conditions on grouped data.
+WHERE CLAUSE is used to filter rows whereas HAVING clause is used to filter aggregated rows.
+
+ROLLUP:    generate multiple grouping sets considering a hierarchy between columns specified in the GROUP BY clause. NEED TO STUDY THIS AT :https://www.mysqltutorial.org/mysql-rollup/
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Indexing in postgre
+
+Types: btree, hash, gist, spgist, gin, and brin. PostgreSQL uses btree by default.
+defaut type is btree
+
+ex creating index on phone column of address table:
+CREATE INDEX idx_address_phone ON address(phone);
+
+Query to check whether index is used?
+EXPLAIN SELECT * FROM address WHERE phone = '223664661973';
+
+
+Same syntax is used in mysql but supported index types vary with db engine:
+Storage Engine		Allowed Index Types
+InnoDB					BTREE
+MyISAM					BTREE
+MEMORY/HEAP	HASH, 		BTREE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
