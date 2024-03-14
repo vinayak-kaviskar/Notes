@@ -1,0 +1,56 @@
+
+
+alt + enter  :  hint
+alt + enter  : if pressed on if--->  invert if
+To join two lines into one and remove unnecessary spaces, press Ctrl+Shift+J.
+ctrl+w  select loops
+ctrl alt m --->> extract to a method 
+shift f6  ---> rename 
+ctrl alt a 
+ctrl alt c --.extract a constant
+cltr alt v ---extract a variable
+ctrl alt n ---> inline in a line instead of a variable ---> can be used to remove code from a function inline
+
+cltr shift del  --> unwrap if
+
+cltr shift i --> code completion tip
+
+ctrl  F4  --> close the file
+ctrl alt B  --> go into impl class
+ctrl F3  , shift F3 ---> to track the selected text/word
+
+To compare any two files or folders, select them in the Project tool window and press Ctrl+D.
+
+
+
+ctrl alt L  : indentation
+ctrl alt shift L :for indentation of selected code block
+
+
+alt 9 to view git history
+cltrl k to send to git
+
+
+ctrl alt o  :remov unused imports
+alt F1      show file in project tree
+
+In the editor, press Ctrl+W/ Ctrl+Shift+W to extend or shrink your current code selection.
+
+ctrl R find and replace
+
+ctrl shift -/+   to collapse/uncollapse all methods 
+
+file search: ctrl +shift+N 
+Shift + shift:  global search
+
+ Ctrl+Shift+E to get a list of recently viewed or changed code fragments.
+ 
+ 
+create field declaration in beforeEach-setUp. constructor, member variable ----- ctrl+alt+F  or refactor-->> field-declaration
+
+VSCODE:
+shft alt f: format
+
+
+POSTMAN
+ctrl + B format request
