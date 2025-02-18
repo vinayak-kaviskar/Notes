@@ -131,11 +131,22 @@ CROSS JOIN
 
 Suppose you join two tables using the CROSS JOIN clause. The result set will include all rows from both tables, where each row is the combination of the row in the first table with the row in the second table. In general, if each table has n and m rows respectively, the result set will have nxm rows.
 
-
+=-------------------------------------------------------------------------------
 SELF JOIN
 
-Join a table with itself using different aliases, we can use leftnjoin or inner join mostly.
+Join a table with itself using different aliases, we can use leftnjoin or inner join mostly. 
+NOTE : WE DON"T USE WORD SELF JOIN, iT is either Inner or left or right but with same table having different aliases
 
+SELECT 
+    CONCAT(m.lastName, ', ', m.firstName) AS Manager,
+    CONCAT(e.lastName, ', ', e.firstName) AS 'Direct report'
+FROM
+    employees e
+INNER JOIN employees m ON 
+    m.employeeNumber = e.reportsTo
+ORDER BY 
+    Manager;
+-------------------------------------------------------------------------------------
 
 GROUP BY
 Is used to group multiple rows into a single row based on value of certain volumn.
