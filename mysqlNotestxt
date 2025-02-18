@@ -24,8 +24,12 @@ truncate table    --->  all rows are deleted from the table
 						its faster
 						logs are not created for every record.
 
+////JOINS SUMMARY
+SELECT * FROM T1 LEFT JOIN T2 ON ()...
+All data from T1 and matching data from T2
 
-
+SELECT * FROM T1 RIGHT JOIN T2 ON ()...
+All data from T2 and matching data from T1
 
 ////////Left Join
 
