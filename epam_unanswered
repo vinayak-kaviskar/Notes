@@ -1,0 +1,108 @@
+difference between subject and observable?
+print onlu first 10 values after subscribing a observable:
+@Injectable({
+  providedIn: 'root'
+})
+export class InterviewService {
+ 
+  obs2: Observable<number>;
+ 
+  private numEmiter(subscriber: Subscriber<number>, value: number) {
+    subscriber.next(value);
+  }
+ 
+  constructor() {
+     this.obs2 = new Observable((observer) => {
+      let value = 1;
+      setInterval(() => this.numEmiter(observer, value++), 1000);
+    });
+  }
+ 
+  /**
+   * Subscribe to obs2 and console.log the received values if they are > 3
+   * maximum console.log's: 10
+   */
+  challenge2(): void {
+    this.obs1.pipe(filter(v => v > 3), takeWhile((v, index) => index < 10)).subscribe(v => console.log(v));
+  }
+}
+
+///explanation:
+Subscribes to obs2.
+Filters values greater than 3.
+Logs up to 10 values (due to takeWhile()).
+After 10 logs, it stops.
+
+--------------------
+
+create an immutable class in angular/typescript?
+export class ImmutableUser {
+  readonly id: number;
+  readonly name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+    Object.freeze(this); // Optional: Prevents any modifications
+  }
+
+  // Method to create a new instance with modified values (immutability principle)
+  withUpdatedName(newName: string): ImmutableUser {
+    return new ImmutableUser(this.id, newName);
+  }
+}
+
+-------------------------------------------------------------------------
+implement a function in typescript to get a sub array with below condition:
+/**
+     *
+     * @param arr i.e.: [1, 2, 3, 4, 5]
+     * @param beginIndex (includive) i.e.: 1
+     * @param endIndex (exclusive) i.e.: 3
+     * --> expected return value: [2, 3]
+     * --> subArray([1, 2, 3, 4, 5], 1, 3) --> [2, 3]
+     * --> subArray([1, 2, 3, 4, 5], 4, 10) --> [5]
+     */
+  subArray(arr: Array<number>, beginIndex: number, endIndex: number): Array<number> {
+----------------------------solution--------------------------------------------------------
+
+function subArray(arr: number[], beginIndex: number, endIndex: number): number[] {
+  // Ensure the beginIndex is within bounds
+  if (beginIndex < 0) beginIndex = 0;
+  // Ensure the endIndex does not exceed array length
+  if (endIndex > arr.length) endIndex = arr.length;
+
+  return arr.slice(beginIndex, endIndex);
+}
+
+---------------------------------------------------------------------------------------------------
+
+Question: implement SimpleUser class and create object using SimpleUserUtils class
+class SimpleUser {
+
+}
+ 
+class SimpleUserUtils {
+  static of(id: number, name: string): SimpleUser {
+    const simpleUser = new SimpleUser(id, name);
+    console.log('userId = ' + simpleUser.id + ' / username = ' + simpleUser.name);
+    return simpleUser;
+  }
+}
+
+------solution----
+class SimpleUser {
+  constructor(public id: number, public name: string) {}
+}
+
+class SimpleUserUtils {
+  static of(id: number, name: string): SimpleUser {
+    const simpleUser = new SimpleUser(id, name);
+    console.log(`userId = ${simpleUser.id} / username = ${simpleUser.name}`);
+    return simpleUser;
+  }
+}
+
+// Example Usage:
+const user = SimpleUserUtils.of(1, "John Doe");
+// Output: userId = 1 / username = John Doe
