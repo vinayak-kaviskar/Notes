@@ -1,0 +1,23 @@
+𝗕𝗮𝘀𝗶𝗰 𝗟𝗲𝘃𝗲𝗹:
+
+* What is Apache Kafka, and what are its core components?
+* Explain the difference between a topic, partition, and segment.
+* How does Kafka ensure message ordering?
+* What is a consumer group in Kafka?
+* What is Kafka’s replication factor, and why is it important?
+
+𝗜𝗻𝘁𝗲𝗿𝗺𝗲𝗱𝗶𝗮𝘁𝗲 𝗟𝗲𝘃𝗲𝗹:
+
+* How does Kafka achieve fault tolerance?
+* Explain Kafka’s partitioning strategy and how it impacts performance.
+* What is Kafka retention policy, and how does it work?
+* Describe Kafka’s consumer offset management.
+* How can Kafka handle backpressure in real-time data processing?
+
+𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗟𝗲𝘃𝗲𝗹:
+
+* Explain the concept of exactly-once semantics (EOS) in Kafka.
+* How would you monitor and optimize Kafka performance in a production environment?
+* Describe how Kafka handles leader election for partitions.
+* What are the challenges of using Kafka in a multi-datacenter setup?
+* How would you design a Kafka-based system to guarantee data consistency in the event of node failures?
