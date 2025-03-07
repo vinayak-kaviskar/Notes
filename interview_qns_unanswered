@@ -2,7 +2,11 @@ Hot interview qns:
 
 siemens
 Difference between ALB and NLB (Application load balancer and Network Load Balancer)?
-How to switch traffic between different stages of API gateway in AWS?
+How to switch traffic between different stages of API gateway in AWS? USE canary deployment while deploying api stages.
+How would you ensure the service is not down in ecs while deployment?
+How the request comes to your ecs from aws load balancer and does not go to other ecs?
+How which type of load balancer public or private?
+Swagger api specification design on how would you keep the url paths?
 
 
 When do we get http 5xx errors?
