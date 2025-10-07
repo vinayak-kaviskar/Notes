@@ -1,0 +1,86 @@
+Programming Fundamentals:
+	OOPs Principles: Encapsulation, Inheritance, Polymorphism, Abstraction
+	Explain the concept of pass by value and pass by reference.
+	In Java are you aware of hashcode and equals method ?
+	Explain pointers in C.
+			#include <stdio.h>
+
+			int main() {
+			int a = 10;
+			int *p = &a;
+
+			printf("Value of a: %d\n", a);
+			printf("Address of a: %p\n", &a);
+			printf("Value stored in pointer p: %p\n", p);
+			printf("Value pointed by p: %d\n", *p);
+
+			return 0;
+			}
+			Output:
+			Value of a: 10
+			Address of a: 0x7ffeefbff59c
+			Value stored in pointer p: 0x7ffeefbff59c
+			Value pointed by p: 10
+
+			What is name of *Operator:   De-referencing Operator.
+			
+			#include <stdio.h>
+
+			int main() {
+			int arr[5] = {10, 20, 30, 40, 50};
+			int *p = arr;
+
+			printf("Value at p: %d\n", *p);
+			p++;    // move pointer to next integer
+			printf("Value after p++: %d\n", *p);
+			p = p + 2; // move pointer two positions ahead
+			printf("Value after p+2: %d\n", *p);
+
+			return 0;
+			}
+			
+			Output:
+			Value at p: 10
+			Value after p++: 20
+			Value after p+2: 40
+
+			Pointer address is scaled by the size of the data type?
+			
+Data Structures & Algorithms:
+
+	Q2. If you have to design a system that needs both fast lookup and fast insertion, which data structure will you choose and why?
+	Hash Table (or HashMap in Java / Dictionary in Python)
+	Explain the logic of a searching algorithm
+	Explain the logic of any sorting algorithm
+	Code to create a DLL Double ended linked list.
+
+Problem solving
+	
+
+Database Knowledge:
+
+
+
+4. Version Control (Git)
+	Q1. What is the difference between git pull and git fetch?
+	What to evaluate: conceptual clarity of remote vs local sync.
+
+	Q2. How would you handle a situation where your code conflicts with a teammate’s after merging?
+	What to evaluate: understanding of merge conflicts and conflict resolution.
+
+5. Web / API Basics
+	Q1. What is the difference between GET and POST methods in HTTP?
+	What to evaluate: awareness of REST principles.
+
+7. Project / Academic Work
+	Q1. Describe one project you worked on — what part did you implement and what challenges did you face?
+	What to evaluate: ownership, problem-solving, and clarity.
+
+	Q2. If you had more time on your project, what would you improve or refactor?
+	What to evaluate: reflection and code quality thinking.
+
+
+
+Learning attitude:					
+Communication:					
+Team fit:
